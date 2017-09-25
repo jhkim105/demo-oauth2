@@ -22,9 +22,7 @@ public class User implements Serializable {
 
   private String username;
 
-
   @Lob
   private String description;
-
 
 }
