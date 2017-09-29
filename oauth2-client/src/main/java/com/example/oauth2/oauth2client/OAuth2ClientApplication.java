@@ -3,6 +3,7 @@ package com.example.oauth2.oauth2client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -18,6 +19,9 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilt
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.filter.CompositeFilter;
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
+//@EnableOAuth2Sso
 @EnableOAuth2Client
 public class OAuth2ClientApplication {
 
@@ -59,7 +64,6 @@ public class OAuth2ClientApplication {
     tokenServices.setRestTemplate(oauthTemplate);
     oauthFilter.setTokenServices(tokenServices);
     filters.add(oauthFilter);
-
     filter.setFilters(filters);
     return filter;
 
@@ -78,7 +82,6 @@ public class OAuth2ClientApplication {
   }
 
 
-
   @Configuration
   class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
@@ -88,12 +91,6 @@ public class OAuth2ClientApplication {
             .antMatchers("/", "/login/**").permitAll()
             .anyRequest().authenticated()
             .and()
-          .logout()
-            .logoutSuccessUrl("/").permitAll()
-            .and()
-          .csrf()
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-          .and()
         .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
     }
   }
