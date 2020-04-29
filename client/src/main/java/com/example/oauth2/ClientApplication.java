@@ -37,13 +37,13 @@ public class ClientApplication {
   @Autowired
   OAuth2ClientContext oauth2ClientContext;
 
-  @Bean
-  public FilterRegistrationBean oauth2ClientFilterRegistration(OAuth2ClientContextFilter filter) {
-    FilterRegistrationBean registration = new FilterRegistrationBean();
-    registration.setFilter(filter);
-    registration.setOrder(-100);
-    return registration;
-  }
+//  @Bean
+//  public FilterRegistrationBean oauth2ClientFilterRegistration(OAuth2ClientContextFilter filter) {
+//    FilterRegistrationBean registration = new FilterRegistrationBean();
+//    registration.setFilter(filter);
+//    registration.setOrder(-100);
+//    return registration;
+//  }
 
   private Filter ssoFilter() {
     CompositeFilter filter = new CompositeFilter();
