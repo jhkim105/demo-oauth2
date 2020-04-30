@@ -16,19 +16,24 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class OAuthClientTest {
 
+  @LocalServerPort
+  private int port;
+
   @Test
-  @Ignore
+//  @Ignore
   public void testOAuth() {
     ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
     resourceDetails.setUsername("user01");
     resourceDetails.setPassword("pass01");
-    resourceDetails.setAccessTokenUri(String.format("http://localhost:%s/oauth/token", 8080));
+    resourceDetails.setAccessTokenUri(String.format("http://localhost:%s/oauth/token", 8081));
     resourceDetails.setClientId("client01");
     resourceDetails.setClientSecret("secret01");
     resourceDetails.setGrantType("password");
     DefaultOAuth2ClientContext clientContext = new DefaultOAuth2ClientContext();
     OAuth2RestTemplate restTemplate = new OAuth2RestTemplate(resourceDetails, clientContext);
-    String result = restTemplate.getForObject(String.format("http://localhost:%s/posts/post01", 8081), String.class);
-    log.debug("{}", result);
+    String accessToken = restTemplate.getAccessToken().getValue();
+    log.debug("accessToken:{}", accessToken);
+//    String result = restTemplate.getForObject(String.format("http://localhost:%s/posts/post01", port), String.class);
+//    log.debug("{}", result);
   }
 }
