@@ -20,7 +20,7 @@ public class OAuthClientTest {
   private int port;
 
   @Test
-//  @Ignore
+  @Ignore
   public void testOAuth() {
     ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
     resourceDetails.setUsername("user01");
@@ -33,7 +33,7 @@ public class OAuthClientTest {
     OAuth2RestTemplate restTemplate = new OAuth2RestTemplate(resourceDetails, clientContext);
     String accessToken = restTemplate.getAccessToken().getValue();
     log.debug("accessToken:{}", accessToken);
-//    String result = restTemplate.getForObject(String.format("http://localhost:%s/posts/post01", port), String.class);
-//    log.debug("{}", result);
+    String result = restTemplate.getForObject(String.format("http://localhost:%s/posts", port), String.class);
+    log.debug("{}", result);
   }
 }

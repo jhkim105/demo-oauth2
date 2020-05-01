@@ -27,7 +27,7 @@ public class OAuthTest {
     ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
     resourceDetails.setUsername("user01");
     resourceDetails.setPassword("pass01");
-    resourceDetails.setAccessTokenUri(String.format("http://localhost:%s/oauth/token", 8080));
+    resourceDetails.setAccessTokenUri(String.format("http://localhost:%s/oauth/token", port));
     resourceDetails.setClientId("client01");
     resourceDetails.setClientSecret("secret01");
 //    resourceDetails.setScope(asList("read", "write"));
