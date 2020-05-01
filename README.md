@@ -1,5 +1,5 @@
 # Spring Security OAuth2 Sample
-* OAuth Server(Provider)
+* OAuth Authorization Server(Provider)
 * OAuth Resource Server
 * OAuth Client
 
