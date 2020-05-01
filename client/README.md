@@ -34,4 +34,4 @@ spring.security.oauth2.client.provider.myoauth-provider.user-name-attribute=name
 ## Refs
 [Spring Boot and OAuth](https://spring.io/guides/tutorials/spring-boot-oauth2/)
 [git-simple](https://github.com/spring-guides/tut-spring-boot-oauth2/tree/master/simple)
-[Spring Boot Reference - OAuth2](https://docs.spring.io/spring-boot/docs/2.2.x/reference/htmlsingle/#boot-features-security-oauth2)
+[Spring Boot - OAuth2](https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/htmlsingle/#boot-features-security-oauth2)
