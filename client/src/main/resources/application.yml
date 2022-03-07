@@ -1,17 +1,13 @@
-# Spring Boot OAuth2 Client
+server:
+  port: 8080
 
+# Logging
+logging:
+  level:
+    com.example: debug
+    org.springframework.security: debug
 
-## Client Setting for Custom OAuth Provider
-pom.xml
-```xml
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-client</artifactId>
-		</dependency>
-```
-
-application.properties
-```yaml
+# oauth2
 spring:
   security:
     oauth2:
@@ -32,5 +28,10 @@ spring:
             token-uri: http://localhost:8081/oauth/token
             user-info-uri: http://localhost:8081/userinfo
             user-name-attribute: username
-```
+#            user-info-authentication-method: header
+#            jwk-set-uri: http://localhost:8081/token_keys
+
+
+
+
 

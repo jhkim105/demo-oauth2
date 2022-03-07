@@ -6,12 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 
-@Controller
+//@Controller
 public class HomeController {
 
   @RequestMapping("/")
-  public String home(Model model) {
-    model.addAttribute("messages", "Welcome! this is OAuth client.");
+  public String home() {
     return "index";
   }
 }

@@ -24,7 +24,7 @@ public class OAuthTest {
   public void testResourceOwnerPassword() {
     ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
     resourceDetails.setUsername("user01");
-    resourceDetails.setPassword("pass01");
+    resourceDetails.setPassword("111111");
     resourceDetails.setAccessTokenUri(String.format("http://localhost:%s/oauth/token", port));
     resourceDetails.setClientId("client01");
     resourceDetails.setClientSecret("secret01");
@@ -38,7 +38,7 @@ public class OAuthTest {
   public void testResourceOwnerPassword2() {
     ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
     resourceDetails.setUsername("user01");
-    resourceDetails.setPassword("pass01");
+    resourceDetails.setPassword("111111");
     resourceDetails.setAccessTokenUri(String.format("http://localhost:%s/oauth/token", port));
     resourceDetails.setClientId("client02");
     resourceDetails.setClientSecret("secret02");
