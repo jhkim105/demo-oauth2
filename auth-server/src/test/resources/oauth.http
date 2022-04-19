@@ -4,7 +4,7 @@ POST http://localhost:8081/oauth/token
 Authorization: Basic client01 secret01
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=password&scope=read&username=user01&password=pass01
+grant_type=password&scope=read&username=user01&password=111111
 ###
 
 # grant_type=client_credentials
